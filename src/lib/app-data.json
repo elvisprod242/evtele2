@@ -1,0 +1,47 @@
+
+{
+  "adminUser": {
+    "id": "user-admin",
+    "name": "admin",
+    "email": "admin123@admin.com",
+    "avatar": "current-user-avatar",
+    "role": "admin"
+  },
+  "user": {
+    "id": "user-current",
+    "name": "Chris P. Bacon",
+    "email": "user@example.com",
+    "avatar": "current-user-avatar",
+    "role": "user"
+  },
+  "users": [
+    { "id": "user-1", "name": "Alex Ray", "avatar": "user-avatar-1", "email": "", "role": "user" },
+    { "id": "user-2", "name": "Jane Doe", "avatar": "user-avatar-2", "email": "", "role": "user" },
+    { "id": "user-3", "name": "Sam Smith", "avatar": "user-avatar-3", "email": "", "role": "user" }
+  ],
+  "allShows": [],
+  "todaysTvPrograms": [],
+  "radioSchedule": [],
+  "podcasts": [
+    { "id": "podcast-1", "title": "The Crimson Case", "duration": "45 min", "image": "podcast-cover-1" },
+    { "id": "podcast-2", "title": "Laugh Track", "duration": "60 min", "image": "podcast-cover-2" }
+  ],
+  "comments": [
+    { "id": "comment-1", "user": "user-1", "text": "This show is amazing! Can't believe that plot twist.", "time": "2m ago", "show": "Midnight Metro" },
+    { "id": "comment-2", "user": "user-2", "text": "The cinematography in Alpine Echoes is just breathtaking. So beautiful.", "time": "5m ago", "show": "Alpine Echoes" },
+    { "id": "comment-3", "user": "user-3", "text": "Finally, a news show that gets straight to the point. Great analysis.", "time": "10m ago", "show": "The Daily Brief" }
+  ],
+  "reminders": [
+    { "id": "rem-1", "showTitle": "Alpine Echoes", "time": "Tonight at 9:00 PM" },
+    { "id": "rem-2", "showTitle": "The Daily Brief", "time": "Tonight at 10:30 PM" }
+  ],
+  "likedContent": [
+    { "id": "like-1", "title": "Midnight Metro", "type": "TV Show" },
+    { "id": "like-2", "title": "Golden Age Radio", "type": "Radio Show" }
+  ],
+  "mockViewingHistory": [
+    "Midnight Metro",
+    "Alpine Echoes",
+    "Laugh Track"
+  ]
+}

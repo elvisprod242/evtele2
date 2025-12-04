@@ -1,0 +1,289 @@
+
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the StreamVerse application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "username": {
+          "type": "string",
+          "description": "The user's chosen username."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "joinDate": {
+          "type": "string",
+          "description": "The date and time the user joined the application.",
+          "format": "date-time"
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the user.",
+          "enum": ["user", "admin"]
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "email",
+        "joinDate",
+        "role"
+      ]
+    },
+    "Program": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Program",
+      "type": "object",
+      "description": "Represents a TV or Radio program in the guide.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the program."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the program."
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the program."
+        },
+        "time": {
+          "type": "string",
+          "description": "Start time of the program (e.g., '20:00')."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Duration of the program (e.g., '60 min')."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of program (tv or radio).",
+          "enum": ["tv", "radio"]
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the program."
+        },
+        "guests": {
+          "type": "string",
+          "description": "Comma-separated list of guests for the program."
+        },
+        "imageUrl": {
+            "type": "string",
+            "description": "URL for the program's image."
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "date",
+        "time",
+        "duration",
+        "type",
+        "category"
+      ]
+    },
+    "Replay": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Replay",
+      "type": "object",
+      "description": "Represents a replay video.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the replay."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the replay."
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "URL for the replay's thumbnail image."
+        },
+        "video_url": {
+          "type": "string",
+          "description": "URL for the replay video file (e.g., m3u8)."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration of the video in seconds."
+        },
+        "published_at": {
+          "type": "string",
+          "description": "Publication date of the replay.",
+          "format": "date-time"
+        },
+        "views": {
+          "type": "number",
+          "description": "Number of views."
+        },
+        "likes": {
+          "type": "number",
+          "description": "Number of likes."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the replay."
+        }
+      },
+      "required": ["title", "description", "thumbnail", "video_url", "duration", "published_at", "category"]
+    },
+    "Category": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Category",
+      "type": "object",
+      "description": "Represents a program category.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the category."
+        }
+      },
+      "required": ["name"]
+    },
+    "Like": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Like",
+      "type": "object",
+      "description": "Represents a 'like' given by a user to a broadcast.",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Like)"
+        },
+        "programId": {
+          "type": "string",
+          "description": "Reference to Program."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp of when the like was given.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "programId",
+        "timestamp"
+      ]
+    },
+    "Comment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Comment",
+      "type": "object",
+      "description": "Represents a comment posted by a user on a broadcast.",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who posted the comment."
+        },
+        "username": {
+            "type": "string",
+            "description": "The name of the user who posted the comment."
+        },
+        "text": {
+          "type": "string",
+          "description": "The text content of the comment."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp of when the comment was posted (server-generated).",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "username",
+        "text",
+        "timestamp"
+      ]
+    },
+     "SiteSettings": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "SiteSettings",
+      "type": "object",
+      "description": "Stores global site settings, such as default statistics.",
+      "properties": {
+        "defaultViews": {
+          "type": "number",
+          "description": "The default number of views to display for TV."
+        },
+        "defaultLikes": {
+          "type": "number",
+          "description": "The default number of likes to display for TV."
+        },
+        "defaultRadioViews": {
+            "type": "number",
+            "description": "The default number of views to display for Radio."
+        },
+        "defaultRadioLikes": {
+            "type": "number",
+            "description": "The default number of likes to display for Radio."
+        }
+      },
+      "required": ["defaultViews", "defaultLikes"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "Stores user profiles. Path-based ownership for private user data."
+    },
+    "/programs/{programId}": {
+      "schema": {
+        "$ref": "#/entities/Program"
+      },
+      "description": "Stores program information."
+    },
+    "/replays/{replayId}": {
+      "schema": {
+        "$ref": "#/entities/Replay"
+      },
+      "description": "Stores replay video information."
+    },
+    "/categories/{categoryId}": {
+      "schema": {
+        "$ref": "#/entities/Category"
+      },
+      "description": "Stores program categories."
+    },
+    "/programs/{programId}/likes/{likeId}": {
+      "schema": {
+        "$ref": "#/entities/Like"
+      },
+      "description": "Stores likes for a specific program."
+    },
+    "/programs/{programId}/comments/{commentId}": {
+      "schema": {
+        "$ref": "#/entities/Comment"
+      },
+      "description": "Stores comments for a specific program."
+    },
+    "/site_settings/{settingId}": {
+      "schema": {
+        "$ref": "#/entities/SiteSettings"
+      },
+      "description": "Stores global site settings. Only admins can write."
+    }
+  }
+}
