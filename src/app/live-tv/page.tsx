@@ -19,7 +19,7 @@ export default function LiveTvPage({}: {}) {
     const [views, setViews] = useState(10000);
     const [likes, setLikes] = useState(1000);
     const [isClient, setIsClient] = useState(false);
-    const [tvStreamUrl, setTvStreamUrl] = useState('https://c.streamhoster.com/link/hls/Wns3eE/i3hogHZs0zc/mtRZn0sX3Up_5/playlist.m3u8');
+    const [tvStreamUrl, setTvStreamUrl] = useState('https://live20.bozztv.com/akamaissh101/ssh101/evtele2xrdc/playlist.m3u8');
     
     const firestore = useFirestore();
 
